@@ -16,7 +16,7 @@ def create_app():
     return app
 
 class TestForm(FlaskForm):
-    now = DateField(u'Current time', format='%m/%d/%Y')
+    now = DateField(u'Current time', format='%Y%m%d')
     submit = SubmitField(u'Submit')
 
 app = create_app()
@@ -26,5 +26,8 @@ def index():
     form = TestForm(csrf_enabled=False)
 
     if form.validate_on_submit():
-        return form.now.data.strftime('%x')
+        return form.now.data.strftime('%Y%m%d')
     return render_template('index.html', form=form)
+
+if __name__ == '__main__':
+    app.run();
