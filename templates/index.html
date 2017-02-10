@@ -1,0 +1,29 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Samplet App for Flask-Bootstrap{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+{% endblock %}
+
+{% block content %}
+    <h1>Form</h1>
+    <form action="" method="post">
+        {{ form.now(class='datepicker') }}
+        <br />
+        {{ form.submit }}
+        <br />
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".datepicker").datepicker();
+        });
+    </script>
+{% endblock %}
